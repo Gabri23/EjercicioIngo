@@ -1,7 +1,13 @@
+//Ejercicio para Ingo
+//by Gabriel Calvo Monge
+//
+
 public class Example{
     
     
     public void timeExcersice(int hora, int minutos, String ampm){
+        
+        //Se dividen los casos normales de los especiales indicados en el enunciado
         
         if (minutos != 10 || minutos != 11 || minutos != 12 || minutos != 13 || minutos != 14 || minutos != 15 || minutos != 30 || minutos !=  45){
             
@@ -9,6 +15,8 @@ public class Example{
             
             
         }
+        
+        //aca se manejan los casos especiales
         
         else{
             System.out.println("son" + getHora(hora) + " y" + casosEspeciales(minutos) + " " + getDayNight(ampm));
@@ -20,6 +28,10 @@ public class Example{
     
     
     public String getHora(int hora){
+        
+        /*Se decidio no usar ifs para mejorar la eficiencia
+        se usa la funcion getHora para tratar las horas
+        */
         
         switch (hora){
             case 1:
@@ -67,6 +79,12 @@ public class Example{
     
     public String getMinutos(int minutos){
         
+        /*en getMinutos se divide de forma entera a los minutos
+        para saber en que donde de los 60 minutos de una hora
+        corresponden. En caso de que sea un número menor a 10,
+        se va directamente a getUnidadMinutos
+        */
+        
         int numIntMinutos = minutos / 10; 
             
             switch (numIntMinutos){
@@ -97,6 +115,10 @@ public class Example{
     }
     
     public String getUnidadMinutos(int minutos){
+        
+        /*en getMinutos se usa la divison modulos
+        para saber el numero de minutos que corresponden.
+        */
         
         int unidadMinutos = minutos %10;
         
@@ -132,10 +154,14 @@ public class Example{
 
         }
         
-        return ("jaja");
+        return (" ");
     }
     
     public String casosEspeciales(int minutos){
+        
+        /*en casosEspeciales se tratan todos los casos especiales
+        que fueron considerados en el enunciado
+        */
         
         while (minutos > 15){
             if (minutos == 10){
@@ -168,6 +194,11 @@ public class Example{
     }
     
     public String getDayNight(String tiempo){
+        
+        /*en getDayNight se maneja el momento del dia ingresado,
+        sea en la mañana o en la tarde
+        */
+        
         if (tiempo == "am"){
             return ("de la mañana");
         }
